@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>MergeMint Studio | Merge Selected PDF Pages Online</title>
+    <meta
+      name="description"
+      content="Merge selected pages from two PDFs instantly in your browser. Private, fast, and free PDF page merger with page-level control."
+    />
+    <meta
+      name="keywords"
+      content="merge pdf, merge selected pdf pages, pdf page merger, combine two pdf, browser pdf tools"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="/" id="canonical-link" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MergeMint Studio | Merge Selected PDF Pages Online" />
+    <meta
+      property="og:description"
+      content="Choose pages from two PDFs and merge them in your browser. No server upload required."
+    />
+    <meta property="og:url" content="/" id="og-url" />
+    <meta property="og:image" content="/og-image.svg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MergeMint Studio | Merge Selected PDF Pages Online" />
+    <meta
+      name="twitter:description"
+      content="A privacy-first two-PDF merger with page selection, merge order control, and instant download."
+    />
+    <meta name="twitter:image" content="/og-image.svg" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "MergeMint Studio",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "description": "Merge selected pages from two PDFs in your browser with no server upload.",
+        "url": "/",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <script>
+      (function setCanonicalFallback() {
+        const canonical = window.location.origin + "/";
+        const canonicalLink = document.getElementById("canonical-link");
+        const ogUrl = document.getElementById("og-url");
+        const ldJson = document.querySelector('script[type="application/ld+json"]');
+        if (canonicalLink) canonicalLink.setAttribute("href", canonical);
+        if (ogUrl) ogUrl.setAttribute("content", canonical);
+        if (ldJson) {
+          try {
+            const schema = JSON.parse(ldJson.textContent);
+            schema.url = canonical;
+            ldJson.textContent = JSON.stringify(schema);
+          } catch {}
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-slate-100">
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
