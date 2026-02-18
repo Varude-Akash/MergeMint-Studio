@@ -69,3 +69,4 @@ Events are already instrumented in `src/pdfMerger.js` and routed through `src/an
 - Supports GA4 (`gtag`) and Plausible.
 - Falls back to `window.dataLayer` event pushes.
 
+# MergeMint-Studio
