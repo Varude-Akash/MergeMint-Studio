@@ -240,3 +240,4 @@ function initToolCards() {
 
   setActive("merge");
 }
+
