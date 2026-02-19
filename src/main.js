@@ -10,15 +10,17 @@ document.querySelector("#app").innerHTML = `
     <div class="relative mx-auto w-full max-w-7xl">
       <header class="rounded-3xl border border-white/70 bg-white/80 p-4 shadow-lg shadow-slate-200/60 backdrop-blur-xl">
         <div class="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
-          <div class="flex items-center gap-3">
+          <a href="/" class="group flex items-center gap-3" aria-label="Go to MergeMint Studio home">
             <div class="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-cyan-500 to-emerald-500 text-sm font-black tracking-wide text-white shadow">MM</div>
             <div>
-              <h1 class="text-xl font-extrabold tracking-tight text-slate-900 sm:text-2xl">MergeMint Studio</h1>
+              <h1 class="text-xl font-extrabold tracking-tight text-slate-900 sm:text-2xl group-hover:text-cyan-700">MergeMint Studio</h1>
               <p class="text-sm text-slate-600">Merge exactly the pages you want from two PDFs.</p>
             </div>
-          </div>
+          </a>
 
           <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-end">
+            <a href="/" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100">Home</a>
+            <a href="#guides" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100">Guides</a>
             <div class="inline-flex rounded-xl border border-slate-200 bg-white p-1">
               <button id="order-ab" type="button" class="rounded-lg px-3 py-2 text-xs font-bold text-white bg-slate-900">A → B</button>
               <button id="order-ba" type="button" class="rounded-lg px-3 py-2 text-xs font-bold text-slate-600 hover:bg-slate-100">B → A</button>
@@ -113,7 +115,7 @@ document.querySelector("#app").innerHTML = `
           </button>
         </section>
 
-        <section class="rounded-3xl border border-white/70 bg-white/85 p-5 shadow-lg shadow-slate-200/60 backdrop-blur-xl">
+        <section id="guides" class="rounded-3xl border border-white/70 bg-white/85 p-5 shadow-lg shadow-slate-200/60 backdrop-blur-xl">
           <h3 class="text-lg font-bold text-slate-900">Popular Guides</h3>
           <div class="mt-3 grid gap-3 sm:grid-cols-3">
             <a class="rounded-xl border border-slate-200 bg-white p-3 text-sm font-semibold text-cyan-800 hover:bg-cyan-50" href="/merge-selected-pdf-pages-online/">Merge Selected PDF Pages Online</a>
