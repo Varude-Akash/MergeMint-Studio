@@ -150,11 +150,11 @@ export function initPdfSplitter() {
   }
 
   function parseRanges(input, pageCount) {
-    const lines = input
-      
-      .split(/[\n,;]+/)
-      .map((line) => line.trim())
-      .filter(Boolean);
+    const normalized = input
+      .replace(/\s*-\s*/g, "-")
+      .replace(/[\n,;]+/g, " ")
+      .trim();
+    const lines = normalized.split(/\s+/).filter(Boolean);
 
     if (lines.length === 0) {
       return { ok: false, message: "Enter at least one range (example: 1-3, 5, 8-10)." };
