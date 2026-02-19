@@ -113,6 +113,15 @@ document.querySelector("#app").innerHTML = `
           </button>
         </section>
 
+        <section class="rounded-3xl border border-white/70 bg-white/85 p-5 shadow-lg shadow-slate-200/60 backdrop-blur-xl">
+          <h3 class="text-lg font-bold text-slate-900">Popular Guides</h3>
+          <div class="mt-3 grid gap-3 sm:grid-cols-3">
+            <a class="rounded-xl border border-slate-200 bg-white p-3 text-sm font-semibold text-cyan-800 hover:bg-cyan-50" href="/merge-selected-pdf-pages-online/">Merge Selected PDF Pages Online</a>
+            <a class="rounded-xl border border-slate-200 bg-white p-3 text-sm font-semibold text-cyan-800 hover:bg-cyan-50" href="/merge-odd-even-pdf-pages/">Merge Odd and Even PDF Pages</a>
+            <a class="rounded-xl border border-slate-200 bg-white p-3 text-sm font-semibold text-cyan-800 hover:bg-cyan-50" href="/private-pdf-merger-no-upload/">Private PDF Merger (No Upload)</a>
+          </div>
+        </section>
+
         <section class="rounded-3xl border border-white/70 bg-white/85 p-4 text-sm font-semibold text-slate-700 shadow-lg shadow-slate-200/60 backdrop-blur-xl" aria-live="polite">
           <p id="status">Ready.</p>
         </section>
