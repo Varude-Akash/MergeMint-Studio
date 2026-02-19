@@ -83,7 +83,7 @@ export function initPdfSplitter() {
 
   function applyExampleRanges() {
     if (!state.pageCount) {
-      refs.ranges.value = "1-3\n4-6";
+      refs.ranges.value = "1-3\n4\n5-6";
     } else {
       const mid = Math.max(1, Math.floor(state.pageCount / 2));
       refs.ranges.value = `1-${mid}\n${mid + 1}-${state.pageCount}`;
@@ -151,19 +151,20 @@ export function initPdfSplitter() {
 
   function parseRanges(input, pageCount) {
     const lines = input
-      .split(/\n+/)
+      
+      .split(/[\n,;]+/)
       .map((line) => line.trim())
       .filter(Boolean);
 
     if (lines.length === 0) {
-      return { ok: false, message: "Enter at least one range (example: 1-3)." };
+      return { ok: false, message: "Enter at least one range (example: 1-3, 5, 8-10)." };
     }
 
     const ranges = [];
     for (const line of lines) {
       const match = line.match(/^(\d+)(?:-(\d+))?$/);
       if (!match) {
-        return { ok: false, message: `Invalid range: ${line}` };
+        return { ok: false, message: `Invalid range token: ${line}. Use formats like 1-3 or 5.` };
       }
 
       const start = Number.parseInt(match[1], 10);
