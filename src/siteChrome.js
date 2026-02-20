@@ -22,10 +22,43 @@ export function renderPage({ title, subtitle, bodyHtml, showGuides = true }) {
   `;
 }
 
+export function initSiteChrome() {
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const toolsToggle = document.getElementById("tools-toggle");
+  const toolsMenu = document.getElementById("tools-menu");
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  }
+
+  if (toolsToggle && toolsMenu) {
+    toolsToggle.addEventListener("click", () => {
+      const isOpen = !toolsMenu.classList.contains("hidden");
+      toolsMenu.classList.toggle("hidden", isOpen);
+      toolsToggle.setAttribute("aria-expanded", String(!isOpen));
+    });
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Node)) {
+        return;
+      }
+      const inside = toolsToggle.contains(target) || toolsMenu.contains(target);
+      if (!inside) {
+        toolsMenu.classList.add("hidden");
+        toolsToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+}
+
 function headerHtml() {
   return `
     <header class="rounded-3xl border border-white/70 bg-white/80 p-4 shadow-lg shadow-slate-200/60 backdrop-blur-xl">
-      <div class="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
+      <div class="flex items-start justify-between gap-3">
         <a href="/" class="group flex items-center gap-3" aria-label="Go to MergeMint Studio home">
           <div class="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-cyan-500 to-emerald-500 text-sm font-black tracking-wide text-white shadow">MM</div>
           <div>
@@ -34,14 +67,33 @@ function headerHtml() {
           </div>
         </a>
 
-        <nav class="flex flex-wrap items-center gap-2">
-          <a href="/" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100">Home</a>
-          <a href="/merge-pdf/" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100">Merge PDF</a>
-          <a href="/split-pdf/" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100">Split PDF</a>
-          <a href="/merge-text/" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100">Text Merge</a>
-          <a href="/merge-csv/" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100">CSV Merge</a>
-          <a href="/#guides" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100">Guides</a>
-        </nav>
+        <button id="menu-toggle" type="button" class="inline-flex items-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 md:hidden">Menu</button>
+      </div>
+
+      <div class="mt-3 hidden items-center gap-2 md:flex">
+        <a href="/" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100">Home</a>
+        <div class="relative">
+          <button id="tools-toggle" type="button" aria-expanded="false" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100">Tools</button>
+          <div id="tools-menu" class="absolute left-0 z-20 mt-2 hidden w-72 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl">
+            <p class="px-2 py-1 text-[11px] font-bold uppercase tracking-wide text-slate-500">PDF Tools</p>
+            <a href="/merge-pdf/" class="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-800 hover:bg-cyan-50">Merge PDF</a>
+            <a href="/split-pdf/" class="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-800 hover:bg-cyan-50">Split PDF</a>
+            <p class="mt-2 px-2 py-1 text-[11px] font-bold uppercase tracking-wide text-slate-500">Data & Text</p>
+            <a href="/merge-text/" class="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-800 hover:bg-cyan-50">Text Merge</a>
+            <a href="/merge-csv/" class="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-800 hover:bg-cyan-50">CSV Merge</a>
+          </div>
+        </div>
+        <a href="/#guides" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100">Guides</a>
+      </div>
+
+      <div id="mobile-menu" class="mt-3 hidden space-y-2 md:hidden">
+        <a href="/" class="block rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700">Home</a>
+        <p class="px-1 text-[11px] font-bold uppercase tracking-wide text-slate-500">Tools</p>
+        <a href="/merge-pdf/" class="block rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700">Merge PDF</a>
+        <a href="/split-pdf/" class="block rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700">Split PDF</a>
+        <a href="/merge-text/" class="block rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700">Text Merge</a>
+        <a href="/merge-csv/" class="block rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700">CSV Merge</a>
+        <a href="/#guides" class="block rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700">Guides</a>
       </div>
     </header>
   `;

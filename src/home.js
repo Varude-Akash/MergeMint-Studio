@@ -1,6 +1,6 @@
 import "./styles.css";
 import { initAnalytics } from "./analytics.js";
-import { renderPage } from "./siteChrome.js";
+import { renderPage, initSiteChrome } from "./siteChrome.js";
 
 document.querySelector("#app").innerHTML = renderPage({
   title: "All tools in one studio",
@@ -40,4 +40,5 @@ document.querySelector("#app").innerHTML = renderPage({
   `
 });
 
+initSiteChrome();
 initAnalytics();

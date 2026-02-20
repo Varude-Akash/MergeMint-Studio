@@ -1,7 +1,7 @@
 import "./styles.css";
 import { initCsvMerge } from "./csvMerge.js";
 import { initAnalytics } from "./analytics.js";
-import { renderPage } from "./siteChrome.js";
+import { renderPage, initSiteChrome } from "./siteChrome.js";
 
 document.querySelector("#app").innerHTML = renderPage({
   title: "CSV Merge",
@@ -22,4 +22,5 @@ document.querySelector("#app").innerHTML = renderPage({
 });
 
 initCsvMerge();
+initSiteChrome();
 initAnalytics();

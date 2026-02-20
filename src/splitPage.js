@@ -1,7 +1,7 @@
 import "./styles.css";
 import { initPdfSplitter } from "./pdfSplitter.js";
 import { initAnalytics } from "./analytics.js";
-import { renderPage } from "./siteChrome.js";
+import { renderPage, initSiteChrome } from "./siteChrome.js";
 
 document.querySelector("#app").innerHTML = renderPage({
   title: "Split PDF",
@@ -28,4 +28,5 @@ document.querySelector("#app").innerHTML = renderPage({
 });
 
 initPdfSplitter();
+initSiteChrome();
 initAnalytics();
