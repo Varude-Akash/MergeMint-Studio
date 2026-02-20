@@ -4,78 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>MergeMint Studio | Merge, Split, and Convert Files Online</title>
-    <meta
-      name="description"
-      content="Merge, split, and process files in your browser. Free tools including PDF merge, PDF split, text merge, and CSV merge."
-    />
-    <meta
-      name="keywords"
-      content="merge pdf, split pdf, text merge, csv merge, browser file tools, online utilities"
-    />
-    <meta
-      name="google-site-verification"
-      content="aHEtgyNT_3Pc8eyAbRvr8rBPXTP_G1CwkiMUXJckvaE"
-    />
+    <title>MergeMint Studio | File Tools Home</title>
+    <meta name="description" content="Open MergeMint Studio tools: Merge PDF, Split PDF, Text Merge, and CSV Merge." />
     <meta name="robots" content="index, follow" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href="/" id="canonical-link" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="MergeMint Studio | Merge, Split, and Convert Files Online" />
-    <meta
-      property="og:description"
-      content="Use MergeMint Studio for PDF merge, PDF split, text merge, and CSV merge right in your browser."
-    />
+    <meta property="og:title" content="MergeMint Studio | File Tools Home" />
+    <meta property="og:description" content="Choose a tool: Merge PDF, Split PDF, Text Merge, CSV Merge." />
     <meta property="og:url" content="/" id="og-url" />
     <meta property="og:image" content="/og-image.svg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="MergeMint Studio | Merge, Split, and Convert Files Online" />
-    <meta
-      name="twitter:description"
-      content="A privacy-first file utility studio: merge PDF, split PDF, merge text, and merge CSV in seconds."
-    />
+    <meta name="twitter:title" content="MergeMint Studio | File Tools Home" />
+    <meta name="twitter:description" content="A browser-based tool suite for PDF and data utilities." />
     <meta name="twitter:image" content="/og-image.svg" />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "MergeMint Studio",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Any",
-        "description": "Merge, split, and process files in your browser with a privacy-first utility studio.",
-        "url": "/",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        }
-      }
-    </script>
 
     <script>
       (function setCanonicalFallback() {
         const canonical = window.location.origin + "/";
         const canonicalLink = document.getElementById("canonical-link");
         const ogUrl = document.getElementById("og-url");
-        const ldJson = document.querySelector('script[type="application/ld+json"]');
         if (canonicalLink) canonicalLink.setAttribute("href", canonical);
         if (ogUrl) ogUrl.setAttribute("content", canonical);
-        if (ldJson) {
-          try {
-            const schema = JSON.parse(ldJson.textContent);
-            schema.url = canonical;
-            ldJson.textContent = JSON.stringify(schema);
-          } catch {}
-        }
       })();
     </script>
   </head>
   <body class="bg-slate-100">
     <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/home.js"></script>
   </body>
 </html>

@@ -4,6 +4,10 @@ const siteUrl = normalizeSiteUrl(process.env.VITE_SITE_URL || "https://your-doma
 const buildDate = new Date().toISOString().split("T")[0];
 const pages = [
   "/",
+  "/merge-pdf/",
+  "/split-pdf/",
+  "/merge-text/",
+  "/merge-csv/",
   "/merge-selected-pdf-pages-online/",
   "/merge-odd-even-pdf-pages/",
   "/private-pdf-merger-no-upload/"
